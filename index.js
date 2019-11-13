@@ -50,6 +50,7 @@ app.listen(PORT, function(error) {
         console.log(error);
         return;
     };
+    console.log("Server running...");
 });
 
 function getAccessToken(id, secret, userId) {
