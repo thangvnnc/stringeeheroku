@@ -12,12 +12,18 @@ app.get('/', function(req, res){
     res.send("Ready!");
 });
 
-app.get('/token/create', function(req, res){
-    let id = req.query.id;
-    let secret = req.query.secret;
+app.get('/token/generator', function(req, res){
     let userId = req.query.userId;
-    var token = getAccessToken(id, secret, userId);
-    res.send(token);
+    fs.readFile('./key.data', function(err, data) {
+        if(err) {
+            console.log(err);
+            res.send(err);
+            return;
+        }
+        let key = JSON.parse(data.toString('utf-8'));
+        var token = getAccessToken(key.id, key.secret, userId);
+        res.send(token);
+    });
 });
 
 app.get('/token/saveToken', function(req, res) {
@@ -40,7 +46,7 @@ app.get('/token/getToken', function (req, res) {
             res.send(err);
             return;
         }
-        let key = data.toString('utf-8')
+        let key = data.toString('utf-8');
         res.send(key);
     });
 });
