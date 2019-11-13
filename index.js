@@ -75,3 +75,9 @@ function getAccessToken(id, secret, userId) {
 	var token = jwt.sign(payload, secret, {algorithm: 'HS256', header: header})
 	return token;
 }
+
+/**
+ * https://stringee.herokuapp.com/token/generator?userId=thangdemo
+ * https://stringee.herokuapp.com/token/saveToken?id=SKl1T9EHHVH0ozX5wpJtBNn6kVHleD7uWs&secret=cjZXbTBkN25uUWRqYlJidXpCMjRVUjJZYzltMWYzaHQ
+ * https://stringee.herokuapp.com/token/getToken 
+ */
