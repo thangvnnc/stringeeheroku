@@ -3,7 +3,7 @@ let app = express();
 let bodyParser = require('body-parser');
 let jwt = require('jsonwebtoken');
 let fs = require('fs');
-const PORT = 9876;
+const PORT = process.env.PORT || 9999;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
