@@ -8,6 +8,10 @@ const PORT = 9876;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get('/', function(req, res){
+    res.send("Ready!");
+});
+
 app.get('/token/create', function(req, res){
     let id = req.query.id;
     let secret = req.query.secret;
